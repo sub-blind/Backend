@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>코딩에 대한 흥미 설문조사</title>
+    </head>
+    <body>
+        <h1>코딩에 대한 흥미와 취미 설문조사</h1>
+        <p>아래의 질문에 답해주세요:</p>
+        <form action="/submit_survey" method="post">
+            <p>
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" required="required">
+            </p>
+            <p>
+                <label for="birthdate">생년월일:</label>
+                <input type="date" id="birthdate" name="birthdate" required="required">
+            </p>
+            <p>
+                <label for="email">이메일:</label>
+                <input type="email" id="email" name="email" required="required">
+            </p>
+            <p>
+                <label for="main_language">제일 주력으로 사용하는 언어는 무엇인가요?</label><br>
+                <select id="main_language" name="main_language">
+                    <option value="Python">Python</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Java">Java</option>
+                    <option value="C++">C++</option>
+                </select>
+            </p>
+            <p>
+                <label for="favorite_food">제일 좋아하는 음식은 무엇인가요?</label><br>
+                <input type="text" id="favorite_food" name="favorite_food">
+            </p>
+            <p>
+                <label for="favorite_animal">제일 좋아하는 동물은 무엇인가요?</label><br>
+                <input type="text" id="favorite_animal" name="favorite_animal">
+            </p>
+            <p>
+                <label for="interest_level">코딩에 대한 흥미도:</label><br>
+                <input type="radio" id="low" name="interest_level" value="낮음">
+                <label for="low">낮음</label><br>
+                <input type="radio" id="medium" name="interest_level" value="보통">
+                <label for="medium">보통</label><br>
+                <input type="radio" id="high" name="interest_level" value="높음">
+                <label for="high">높음</label><br>
+            </p>
+            <p>
+                <label for="reason">코딩에 관심을 갖게 된 이유:</label><br>
+                <textarea id="reason" name="reason" rows="4" cols="50"></textarea>
+            </p>
+            <input type="submit" value="제출">
+        </form>
+    </body>
+</html>
