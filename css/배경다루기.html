@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>배경 다루기</title>
+        <!-- 마진> 보더 >패딩-->
+        <style>
+            div {
+                width: 300px;
+                height: 300px;
+                padding: 20px;
+                border: 20px double green;
+                /*
+            background-color: gray;
+           */
+                background-clip: border-box;
+
+                background-image: url("images/images.jpg");
+                background-size: 200px 200px;
+                background-repeat: no-repeat;
+                
+                background-origin: content-box;
+                background-position: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>
