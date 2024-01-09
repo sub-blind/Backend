@@ -1,0 +1,37 @@
+body {
+    background-color: #83697e;
+    padding-top: 150px;
+}
+h1,ul {
+    font-family: 'Chakra Petch', sans-serif;
+}
+hr {
+    margin: 0 30px;
+}
+td {
+    width: 450px;
+}
+h2 {
+    color: black;
+}
+.profile {
+    background-color: rgb(255, 255, 255);
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 900px;
+    text-align: center;
+}
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin-top: -100px;
+}
+.text {
+    color: rgb(105, 94, 94);
+    text-align: left;
+    font-size: 1.2em;
+    list-style: none;
+}
