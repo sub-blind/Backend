@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>회원가입</title>
+
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            form {
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                width: 300px;
+            }
+
+            h2 {
+                text-align: center;
+                color: #333;
+            }
+
+            fieldset {
+                border: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            input,
+            select {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+
+            input[type="radio"] {
+                display: inline-block;
+                margin-right: 5px;
+            }
+
+            label {
+                display: inline-block;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            input[type="submit"] {
+                background-color: #4caf50;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+            hr {
+                margin: 10px 0;
+                border: 0;
+                border-top: 1px solid #ccc;
+            }
+
+            p {
+                font-size: 16px;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="signupForm">
+            <h2>회원가입</h2>
+            <fieldset>
+                <input type="text" id="userId" name="name" placeholder="아이디"/>
+                <br/>
+                <input type="password" id="userPw" name="password" placeholder="비밀번호"/>
+            </fieldset>
+            <input type="text" id="phoneNumber" name="number" placeholder="휴대전화번호"/>
+            <select id="telecom">
+                <option>통신사</option>
+                <option>SKT</option>
+                <option>LG</option>
+                <option>KT</option>
+                <option>알뜰폰</option>
+                <fieldset>
+                    <input type="text" id="userName" name="name" placeholder="이름"/>
+                    <br/>
+                    <input type="text" id="birthdate" name="birthdate" placeholder="생년월일8자리"/>
+                    <br/>
+                    <input type="radio" id="male" name="sex"/>
+                    <label for="male">남자</label>
+                    <input type="radio" id="female" name="sex"/>
+                    <label for="female">여자</label>
+                </select>
+                <br/>
+                <input type="submit" value="가입하기"/>
+            </fieldset>
+        </form>
+
+        <script>
+            document
+                .getElementById("signupForm")
+                .addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    const userId = document
+                        .getElementById("userId")
+                        .value;
+                    const userPw = document
+                        .getElementById("userPw")
+                        .value;
+                    const userName = document
+                        .getElementById("userName")
+                        .value;
+                    const birthdate = document
+                        .getElementById("birthdate")
+                        .value;
+                    const gender = document
+                        .querySelector('input[name="sex"]:checked')
+                        .value;
+                    const phoneNumber = document
+                        .getElementById("phoneNumber")
+                        .value;
+                    const telecom = document
+                        .getElementById("telecom")
+                        .value;
+
+                    console.log("아이디:", userId);
+                    console.log("비밀번호:", userPw);
+                    console.log("이름:", userName);
+                    console.log("생년월일:", birthdate);
+                    console.log("성별:", gender);
+                    console.log("휴대전화번호:", phoneNumber);
+                    console.log("통신사:", telecom);
+                });
+        </script>
+    </body>
+</html>

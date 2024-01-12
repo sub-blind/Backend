@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>다크모드</title>
+        <style>
+            body {
+                transition: background-color 0.3s ease;
+            }
+            .dark-mode {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="click"></div>
+        <script>
+            const whitebutton = document.createElement("button");
+            whitebutton.textContent = "white";
+            whitebutton.addEventListener("click", () => {
+                document.body.classList.remove("dark-mode");
+            });
+            document.body.appendChild(whitebutton);
+
+            const blackbutton = document.createElement("button");
+            blackbutton.textContent = "black";
+            blackbutton.addEventListener("click", () => {
+                document.body.classList.add("dark-mode");
+            });
+            document.body.appendChild(blackbutton);
+        </script>
+    </body>
+</html>
