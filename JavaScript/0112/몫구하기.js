@@ -74,8 +74,9 @@ function Test(question, conditions, results) {
 
 function question(candies, friends) {
     // 여기에서 코드 작성해주세요!
+    
     let result;
-    result = parseInt (candies/friends);
+    result = parseInt (candies/friends); 
     return result;
 }
 
