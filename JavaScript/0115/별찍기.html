@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>별 트리 찍기</title>
+    </head>
+    <body>
+        <h1>별 트리 찍기</h1>
+        <script>
+            
+            document.write('<h4>1번별찍기<h4>')
+            
+            for(let i = 0; i < 5; i++)  {
+                for(let j = 0; j <= i; j++)  {
+                    document.write('*');
+                }
+                document.write('<br>');
+            }
+            document.write('<br>');
+
+            document.write('2번별찍기<br>')
+            //위쪽 삼각형
+            for(let i = 0; i < 5; i++)  {
+                for(let j = 0; j <= i; j++)  {
+                    document.write('*');
+                }
+                document.write('<br>');
+            }
+            //아래쪽 역삼각형
+            for(let i = 0; i < 5; i++)  {
+                for(let j = 5; j > i; j--)  {
+                    document.write('*');
+                }
+                document.write('<br>');
+            }
+            document.write('<br>');
+
+            document.write('3번별찍기<br>')
+            for(let i = 0; i < 5; i++)  {
+                 //앞부분 공백 추가
+                for(let j = 4; j > i; j--)  {
+                    document.write('&nbsp');
+            }   //왼쪽 별 찍기
+                for(let j = 0; j <= i; j++)  {
+                    document.write('*');
+            }   //오른쪽 별 찍기
+                for(let j = 1; j <= i; j++)  {
+                    document.write('*');
+            }
+                document.write('<br>');
+            }
+            //아래쪽 별 그리기
+            for(let i = 0; i < 4; i++)  {
+                //앞부분 공백 추가
+                for(let j = 0; j <= i; j++)  {
+                    document.write('&nbsp');
+                }//왼쪽 별 찍기
+                for(let j = 4; j > i; j--)  {
+                    document.write('*');
+                }//오른쪽 별 찍기
+                for(let j = 3; j > i; j--)  {
+                    document.write('*');
+                }
+                document.write('<br>');
+            }
+
+        </script>
+    </body>
+</html>

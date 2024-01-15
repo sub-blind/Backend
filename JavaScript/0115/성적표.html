@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>성적 확인</title>
+        <style>
+            table {
+                width: 10%;
+                border-collapse: collapse;
+                margin: 20px 0;
+            }
+
+            td,
+            th {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+
+            th {
+                background-color: rgb(164, 162, 162);
+            }
+
+            .grade {
+                background-color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>성적 확인</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>점수</th>
+                    <th>학점</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="grade">
+                    <td>90~99</td>
+                    <td>A</td>
+                </tr>
+                <tr class="grade">
+                    <td>80~89</td>
+                    <td>B</td>
+                </tr>
+                <tr class="grade">
+                    <td>70~79</td>
+                    <td>C</td>
+                </tr>
+                <tr class="grade">
+                    <td>60~69</td>
+                    <td>D</td>
+                </tr>
+                <tr class="grade">
+                    <td>나머지</td>
+                    <td>F</td>
+                </tr>
+            </tbody>
+        </table>
+        <p id="check"></p>
+        <script>
+            const grade = Number(prompt('점수를 입력하세요'));
+
+            let result;
+
+            if (grade >= 90) {
+                result = 'A학점';
+            } else if (grade >= 80) {
+                result = 'B학점'
+            } else if (grade >= 70) {
+                result = 'C학점'
+            } else if (grade >= 60) {
+                result = 'D학점'
+            } else {
+                result = 'F학점'
+            }
+            console.log(result)
+            document
+                .getElementById('check')
+                .innerText = `당신의 점수는 ${grade}점이고 당신의 학점은 ${result} 입니다.`;
+        </script>
+    </body>
+</html>

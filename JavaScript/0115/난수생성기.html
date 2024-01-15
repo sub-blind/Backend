@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>난수 맞추기</title>
+        <style>
+            .tx {
+                width: 60px;
+                margin-right: 10px;
+            }
+            * {
+                background-color: #8045d4;
+                color: rgb(0, 0, 0);
+                text-align: center;
+            }
+            .tx {
+                width: 200px;
+                height: 50px;
+                background-color: rgb(255, 255, 255);
+                border-radius: 10px;
+            }
+            .btn {
+                width: 70px;
+                height: 50px;
+                background-color: white;
+                color: rgb(0, 0, 0);
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>난수 맞추기 게임</h1>
+        <h2>1부터 100까지 숫자입력</h2>
+
+        <form id="form">
+            <div id="main">
+                <input type="number" id="text" class="tx">
+                <button type="button" class="btn" onclick="click()">정답</button>
+                <h2 id="hint"></h2>
+            </div>
+        </form>
+        <script>
+            // 난수 생성
+            const random = Math.floor(Math.random() * 100) + 1;
+            console.log(random); //콘솔에 정답 보여주기
+
+            // 사용자가 확인 버튼을 클릭할 때 실행되는 함수
+            function ck() {
+                //사용자가 입력한 숫자 가져오기
+                const num = parseInt(document.getElementById('text').value);
+                //결과를 나타내는 요소 가져오기
+                const result = document.getElementById('hint');
+
+                // 입력받은 수와 비교 후 힌트 제공
+                if (num < random) {
+                    result.textContent = "더 클걸?";
+                } else if (num > random) {
+                    result.textContent = "조금만 낮춰봐";
+                } else {
+                    result.textContent = "정답";
+                }
+            }
+        </script>
+    </body>
+</html>
