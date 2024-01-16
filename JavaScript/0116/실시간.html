@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 날짜와 시간</title>
+    <style>
+        #clock {
+            font-size: 24px;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="clock"></div>
+<script>
+    function updateClock() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1; // 월은 0부터 시작하므로 1을 더합니다.
+        var day = now.getDate();
+        var dayOfWeek = ['일', '월', '화', '수', '목', '금', '토'][now.getDay()];
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        // 10보다 작은 숫자 앞에 0을 붙이기
+        month = month < 10 ? '0' + month : month;
+        day = day < 10 ? '0' + day : day;
+        hours = hours < 10 ? '0' + hours : hours;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        var dateString = year + '-' + month + '-' + day + ' ' + dayOfWeek;
+        var timeString = hours + ':' + minutes + ':' + seconds;
+        var clockElement = document.getElementById('clock');
+        clockElement.innerHTML = dateString + '<br>' + timeString;
+    }
+
+    // 1초마다 시간 업데이트
+    setInterval(updateClock, 1000);
+
+    // 초기 로딩 시 한 번 호출
+    updateClock();
+</script>
+
+</body>
+</html>
