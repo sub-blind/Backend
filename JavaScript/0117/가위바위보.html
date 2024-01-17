@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>가위바위보 게임</title>
+    </head>
+    <body>
+        <h1>가위바위보 게임</h1>
+
+        <label for="userInput">가위, 바위, 보 중 하나를 입력</label><br>
+        <input type="text" id="userInput" placeholder="가위, 바위, 보">
+        <button onclick="playGame()">결과 확인</button>
+        <div id="result"></div>
+
+        <script>
+            function playGame() {
+                // 사용자가 입력한 값
+                var userInput = document
+                    .getElementById("userInput")
+                    .value;
+                // 컴퓨터가 선택한 값
+                var computerChoices = ["가위", "바위", "보"];
+                var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                // 결과 판정
+                var result;
+                if (!userInput) {
+                    result = "가위, 바위, 보 중 하나를 입력하세요!";
+                } else if (!computerChoices.includes(userInput)) {
+                    result = "가위, 바위, 보 중 하나를 정확하게 입력해야 합니다.!";
+                } else if (userInput === computerChoice) {
+                    result = "무승부!";
+                } else if ((userInput === "가위" && computerChoice === "보") 
+                        || (userInput === "바위" && computerChoice === "가위")
+                        || (userInput === "보" && computerChoice === "바위")) {
+                    result = "이겼습니다!";
+                } else {
+                    result = "졌습니다!";
+                }
+                // 결과 출력
+                var resultElement = document.getElementById("result");
+                resultElement.textContent = "당신의 선택 " + userInput + " | 컴퓨터가 선택한 것: " +
+                        computerChoice + " | 결과: " + result;
+            }
+        </script>
+
+    </body>
+</html>
