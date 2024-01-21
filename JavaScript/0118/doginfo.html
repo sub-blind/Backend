@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./doginfo.css" rel="stylesheet">
+        <title>doginfo</title>
+    </head>
+    <body>
+        <div id="container">
+            <header class="header" id="header">
+                <div class="header__search">
+                    <label for="filter-text">검색어:</label>
+                    <input id="filter-text" type="text"/>
+                    <button id="filter-btn">필터링</button>
+                </div>
+                <label for="filter-select">필터:</label>
+                <select id="filter-select">
+                    <option value="">all</option>
+                </select>
+
+                <button id="reset-btn">Reset</button>
+            </header>
+            <main class="main" id="main"></main>
+            <div class="more" id="more">MORE</div>
+            <div class="toTheTop" id="toTheTop">TOP</div>
+        </div>
+
+        <script src="./doginfo.js"></script>
+    </body>
+</html>

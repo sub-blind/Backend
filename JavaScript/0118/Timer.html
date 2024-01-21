@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="icon" href="./images/oz_icon.png"/>
+        <title>카운트다운 타이머</title>
+        <style>
+            body {
+                font-family: "Roboto", sans-serif;
+                background: linear-gradient(to right, #1e3c72, #2a5298);
+                color: #fff;
+                margin: 0;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            header {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            #timer {
+                display: flex;
+                justify-content: center;
+                margin: 20px 0;
+            }
+
+            .time-unit {
+                margin: 0 10px;
+                text-align: center;
+            }
+
+            .time-unit > span {
+                display: block;
+                min-width: 60px;
+                font-size: 40px;
+                font-weight: 700;
+                background: rgba(255, 255, 255, 0.2);
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                transition: opacity 0.3s ease;
+                opacity: 1;
+            }
+
+            .time-text.fade-effect {
+                opacity: 0;
+            }
+
+            .time-unit .label {
+                margin-top: 5px;
+                font-size: 16px;
+            }
+
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background: hsl(220, 38%, 30%);
+                font-size: 14px;
+                text-align: center;
+                padding: 50px 0;
+            }
+
+            .footer a {
+                color: hsl(210, 100%, 80%);
+                text-decoration: none;
+            }
+
+            @media (max-width: 600px) {
+                header {
+                    font-size: 20px;
+                    text-align: center;
+                }
+                .time-unit > span {
+                    min-width: 40px;
+                    font-size: 24px;
+                }
+
+                .time-unit {
+                    margin: 0 6px;
+                }
+
+                .time-unit .label {
+                    font-size: 12px;
+                }
+                .footer {
+                    font-size: 12px;
+                    margin-top: 40px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>카운트다운 타이머</header>
+            <div class="endDate">
+                <label for="endDate">타이머 종료 날짜 입력:
+                </label>
+                <input type="text" id="endDate" placeholder="예시: 2024-06-25 23:59:59">
+                <button onclick="setEndDate()">설정</button>
+            </div>
+            <div id="timer">
+                <div class="time-unit">
+                    <span>
+                        <span class="time-text" id="days">00</span>
+                    </span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-unit">
+                    <span>
+                        <span class="time-text" id="hours">00</span>
+                    </span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span>
+                        <span class="time-text" id="minutes">00</span>
+                    </span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="time-unit">
+                    <span>
+                        <span class="time-text" id="seconds">00</span>
+                    </span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#">김재섭</a>
+        </div>
+        <script>
+            const currentTime = {
+                days: null,
+                hours: null,
+                minutes: null,
+                seconds: null
+            };
+
+            let interval;
+
+            function fadeOutEffect(element) {
+                element
+                    .classList
+                    .add("fade-effect");
+            }
+
+            function fadeInEffect(element) {
+                element
+                    .classList
+                    .remove("fade-effect");
+            }
+
+            function setEndDate() {
+                const endDateInput = document
+                    .querySelector("#endDate")
+                    .value;
+                const endDate = new Date(endDateInput).getTime();
+
+                if (!isNaN(endDate)) {
+                    startTimer(endDate);
+                } else {
+                    alert("올바른 날짜 형식을 입력해주세요. (yyyy-mm-dd hh:mm:ss)");
+                }
+            }
+
+            function startTimer(endDate) {
+                clearInterval(interval);
+
+                interval = setInterval(function () {
+                    const now = new Date().getTime();
+                    const distance = endDate - now;
+
+                    const days = Math.floor(distance / (24 * 60 * 60 * 1000));
+                    const hours = Math.floor((distance % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+                    const minutes = Math.floor((distance % (60 * 60 * 1000)) / (60 * 1000));
+                    const seconds = Math.floor((distance % (60 * 1000)) / 1000);
+
+                    updateWithFadeEffect("days", days, "days");
+                    updateWithFadeEffect("hours", hours, "hours");
+                    updateWithFadeEffect("minutes", minutes, "minutes");
+                    updateWithFadeEffect("seconds", seconds, "seconds");
+
+                    if (distance < 0) {
+                        clearInterval(interval);
+                        document
+                            .getElementById("timer")
+                            .textContent = "시간이 만료되었습니다!";
+                    }
+                }, 1000);
+            }
+
+            function updateWithFadeEffect(id, value, timeUnit) {
+                const element = document.getElementById(id);
+                const newValue = value < 10
+                    ? "0" + value
+                    : value;
+
+                if (newValue !== currentTime[timeUnit]) {
+                    fadeOutEffect(element);
+                    setTimeout(() => {
+                        element.textContent = newValue;
+                        fadeInEffect(element);
+                    }, 300);
+                    currentTime[timeUnit] = newValue;
+                }
+            }
+        </script>
+    </body>
+</html>
