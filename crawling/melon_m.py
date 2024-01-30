@@ -31,13 +31,14 @@ time.sleep(0.2)
 
 more_btn = driver.find_elements(By.CSS_SELECTOR, "#moreBtn")[1].click()
 
+
 # 노래 순위
 # 노래 제목
 # 가수 이름
 html = driver.page_source
 soup = BeautifulSoup(html, "html.parser")
 
-items = soup.select(".list_item")
+items = soup.select("#_chartList .list_item")
 num = 1
 print("멜론차트 TOP100위")
 for i in items:
@@ -49,4 +50,4 @@ for i in items:
     print()
     num += 1
 
-# driver.quit()
+driver.quit()
