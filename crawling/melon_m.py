@@ -39,14 +39,14 @@ soup = BeautifulSoup(html, "html.parser")
 
 items = soup.select(".list_item")
 num = 1
+print("멜론차트 TOP100위")
 for i in items:
     singer = i.select_one(".name.ellipsis")
     title = i.select_one(".title.ellipsis")
-    print("멜론차트 TOP100위")
     print(f"{num}위")
     print(f"제목:{title.text.strip()}")
     print(f"가수:{singer.text.strip()}")
     print()
     num += 1
 
-driver.quit()
+# driver.quit()
