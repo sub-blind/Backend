@@ -40,7 +40,7 @@ soup = BeautifulSoup(html, "html.parser")
 
 items = soup.select("#_chartList .list_item")
 num = 1
-print("멜론차트 TOP100위")
+print("멜론차트 100위")
 for i in items:
     singer = i.select_one(".name.ellipsis")
     title = i.select_one(".title.ellipsis")
