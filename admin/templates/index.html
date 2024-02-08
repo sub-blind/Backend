@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Admin Page</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+            crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container mt-3">
+            <div id="clock"></div>
+            <h2 class="mt-5 mb-3">신규 등록 상품</h2>
+            <form class="row row-cols-lg-auto g-3 align-items-center">
+                <div class="col-12">
+                    <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+                    <select class="form-select" id="inlineFormSelectPref">
+                        <option selected="selected" disabled="disabled">카테고리</option>
+                        <option value="1">상의</option>
+                        <option value="2">모자</option>
+                        <option value="3">가방</option>
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+                    <select class="form-select" id="inlineFormSelectPref">
+                        <option selected="selected" disabled="disabled">성별</option>
+                        <option value="1">남성</option>
+                        <option value="2">여성</option>
+                        <option value="3">남녀혼용</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <label class="visually-hidden" for="autoSizingInput">Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="autoSizingInput"
+                        placeholder="제품명을 입력해주세요.">
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-primary" id="search" type="button">조회</button>
+                    <button class="btn btn-primary" id="delete" type="button">삭제</button>
+                </div>
+            </form>
+            <div class="container mt-3">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">카테고리</th>
+                            <th scope="col">성별</th>
+                            <th scope="col">브랜드</th>
+                            <th scope="col">상품명</th>
+                            <th scope="col">가격</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table">
+                        {% for i in data_list %}
+                            <tr>
+                                <td>{{ i[0] }}</td>
+                                <td>{{ i[1] }}</td>
+                                <td>{{ i[2] }}</td>
+                                <td>{{ i[3] }}</td>
+                            </tr>
+                        {% endfor %}
+                        <!-- 추후 크롤링한 데이터가 들어가는 자리 -->
+                    </tbody>
+                </table>
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div style="text-align: right;">
+                <a
+                    href="https://github.com/sub-blind?tab=repositories"
+                    target="_blank"
+                    rel="noopener">
+                    <img src="images\image.png" alt="위의 이미지를 누르면 연결됩니다." width="50" height="50">
+                </a>
+            </div>
+
+            <script>
+                // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다. 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해
+                // 볼 수 있음
+                const data = [
+                    {
+                        category: "상의",
+                        brand: 'Supreme',
+                        product: '슈프림 박스로고 후드티',
+                        price: '390,000'
+                    }, {
+                        category: "하의",
+                        brand: 'DIESEL',
+                        product: '디젤 트랙 팬츠',
+                        price: '188,000'
+                    }, {
+                        category: "신발",
+                        brand: 'Nike',
+                        product: '에어포스 1',
+                        price: '137,000'
+                    }, {
+                        category: "패션잡화",
+                        brand: 'Music&Goods',
+                        product: '빵빵이 키링',
+                        price: '29,000'
+                    },
+                    // ...
+                ];
+
+                const dataTable = document.getElementById('data-table');
+
+                data.forEach((item) => {
+                    const row = dataTable.insertRow();
+                    row
+                        .insertCell(0)
+                        .innerHTML = item.category;
+                    row
+                        .insertCell(1)
+                        .innerHTML = item.brand;
+                    row
+                        .insertCell(2)
+                        .innerHTML = item.product;
+                    row
+                        .insertCell(3)
+                        .innerHTML = item.price;
+                });
+            </script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+                crossorigin="anonymous"></script>
+            <script>
+                function updateClock() {
+                    var now = new Date();
+                    var year = now.getFullYear();
+                    var month = now.getMonth() + 1; // 월은 0부터 시작하므로 1을 더합니다.
+                    var day = now.getDate();
+                    var dayOfWeek = [
+                        '일',
+                        '월',
+                        '화',
+                        '수',
+                        '목',
+                        '금',
+                        '토'
+                    ][now.getDay()];
+                    var hours = now.getHours();
+                    var minutes = now.getMinutes();
+                    var seconds = now.getSeconds();
+
+                    // 10보다 작은 숫자 앞에 0을 붙이기
+                    month = month < 10
+                        ? '0' + month
+                        : month;
+                    day = day < 10
+                        ? '0' + day
+                        : day;
+                    hours = hours < 10
+                        ? '0' + hours
+                        : hours;
+                    minutes = minutes < 10
+                        ? '0' + minutes
+                        : minutes;
+                    seconds = seconds < 10
+                        ? '0' + seconds
+                        : seconds;
+                    var dateString = year + '-' + month + '-' + day + ' ' + dayOfWeek + ' ';
+                    var timeString = hours + ':' + minutes + ':' + seconds;
+                    var clockElement = document.getElementById('clock');
+                    clockElement.innerHTML = dateString + timeString;
+                }
+
+                // 1초마다 시간 업데이트
+                setInterval(updateClock, 1000);
+
+                // 초기 로딩 시 한 번 호출
+                updateClock();
+            </script>
+        </body>
+    </html>
