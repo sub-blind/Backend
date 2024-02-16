@@ -95,6 +95,8 @@ for i in items:
             num += 1
 
 
+driver.quit()
+
 conn = pymysql.connect(
     host="localhost",
     user="root",

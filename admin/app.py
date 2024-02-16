@@ -9,21 +9,18 @@ db = pymysql.connect(
 )
 cur = db.cursor()
 
-# 쿼리문 실행
-sql = "SELECT * FROM kream"
-cur.execute(sql)
-kream_data = cur.fetchall()
-
 # 전체 페이지 수 계산
 items_per_page = 10
-total_pages = (len(kream_data) + items_per_page - 1) // items_per_page
 
 
 # 현재 페이지 및 페이지당 항목 수를 가져오기 위한 함수 정의
 def get_current_data(page):
     start_idx = (page - 1) * items_per_page
     end_idx = start_idx + items_per_page
-    current_data = kream_data[start_idx:end_idx]
+    # 쿼리문 실행
+    sql = f"SELECT * FROM kream LIMIT {start_idx}, {items_per_page}"
+    cur.execute(sql)
+    current_data = cur.fetchall()
     return current_data
 
 
@@ -35,6 +32,12 @@ def index():
 
     # 현재 페이지에 해당하는 데이터만 추출
     current_data = get_current_data(page)
+
+    # 전체 페이지 수 계산
+    sql = "SELECT COUNT(*) FROM kream"
+    cur.execute(sql)
+    total_items = cur.fetchone()[0]
+    total_pages = (total_items + items_per_page - 1) // items_per_page
 
     return render_template(
         "index.html", data_list=current_data, current_page=page, total_pages=total_pages
