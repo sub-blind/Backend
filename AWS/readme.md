@@ -9,8 +9,8 @@
     - 최소 2개의 가용 영역으로 구성<br>
     - 예를 들어 가용 영역이 위치한 특정 지역에 물리적인 재난이나 재해로 서비스 이용이 불가능 할 수 있다.<br> 
     - 이를 극복하기 위해 AWS에 서비스를 구성할 때 가용 영역을 분산하여 구성하는 것을 권장<br>
-가용 영역(Availability zone) - 한 개 이상의 데이터 센터들의 모음 - 데이터 센터는 분산되어 있으며, 초고속 광통신 전용망으로 연결되어 있다.
-엣지(Edge POP(Point of Presense)) - 외부 인터넷과 AWS 글로벌 네트워크망과 연결하는 별도의 센터 - 엣지 로케이션(Edge Location)과 리전별 엣지 캐시- (Regional Edge Cache)로 구성 - CloudFront와 같은 CDN 서비스의 데이터 캐시 기능을 제공
+<br>가용 영역(Availability zone) - 한 개 이상의 데이터 센터들의 모음 - 데이터 센터는 분산되어 있으며, 초고속 광통신 전용망으로 연결되어 있다.
+<br>엣지(Edge POP(Point of Presense)) - 외부 인터넷과 AWS 글로벌 네트워크망과 연결하는 별도의 센터 - 엣지 로케이션(Edge Location)과 리전별 엣지 캐시- (Regional Edge Cache)로 구성 - CloudFront와 같은 CDN 서비스의 데이터 캐시 기능을 제공
 
 <h2>클라우드의 종류 설명해보기</h2>
 <img src="./image/image.png">
