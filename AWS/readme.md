@@ -13,7 +13,7 @@
 엣지(Edge POP(Point of Presense)) - 외부 인터넷과 AWS 글로벌 네트워크망과 연결하는 별도의 센터 - 엣지 로케이션(Edge Location)과 리전별 엣지 캐시- (Regional Edge Cache)로 구성 - CloudFront와 같은 CDN 서비스의 데이터 캐시 기능을 제공
 
 <h2>클라우드의 종류 설명해보기</h2>
-<img src="AWS\image\image.png"  width="700" height="370">
+<img src="./image/image.png">
 On Premises(ownserver) - 기업이 자체적으로 IT 인프라를 소유, 관리 및 운영하는 경우를 ‘On premises’라고 합니다. - 이 경우 사내 IT 팀이 시스템의 설계, 구축 및 관리를 담당합니다. 드물지만, 서드 파티 공급업체가 일부 구성 요소를 관리하는 경우도 있습니다. 그러나 대부분의 경우 조직이 위치, 장치, 소프트웨어 및 애플리케이션을 완전히 소유하고 관리합니다.
 
 IaaS 클라우드 서비스 - 스토리지, 컴퓨팅, 네트워크 기능에 대한 인프라 서비스를 제공하는 IaaS 플랫폼은 가상화 기술을 기반으로한 클라우드 서비스 유형입니다.
