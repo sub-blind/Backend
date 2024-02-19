@@ -13,6 +13,7 @@
      - 서비스 장애가 발생하더라도 문제없이 서비스 이용
 
 2. EC2 인스턴스 생성하기(서울 리전, Bitnami WordPress, t2.micro)
+<<<<<<< HEAD
    ![1](https://github.com/sub-blind/oz_front/assets/58137602/59716f58-4860-462d-809b-7d5f771441e0)
 3. ALB 생성하기
    ![3](https://github.com/sub-blind/oz_front/assets/58137602/6d518965-91b6-4c4c-bf52-86a29bf510c2)
@@ -24,3 +25,16 @@
    ![6](https://github.com/sub-blind/oz_front/assets/58137602/3ecf725b-d986-4b62-b57d-5427290f4ec9)
 7. 모든 리소스 정리하기
    ![7](https://github.com/sub-blind/oz_front/assets/58137602/83f2aa23-6384-4b94-8879-32b1650675a3)
+=======
+![1](https://github.com/sub-blind/oz_front/assets/58137602/59716f58-4860-462d-809b-7d5f771441e0)
+3. ALB 생성하기
+![3](https://github.com/sub-blind/oz_front/assets/58137602/6d518965-91b6-4c4c-bf52-86a29bf510c2)
+4. 생선한 EC@ 인스턴스를 기반으로 AMI 생성하기
+![4](https://github.com/sub-blind/oz_front/assets/58137602/c12be4c1-0352-45a1-89a2-474c7152177b)
+5. auto Scaling Group 만들기
+![5](https://github.com/sub-blind/oz_front/assets/58137602/af1a359c-9fff-4860-8cfa-215fa260dee7)
+6. EC@ 인스턴스에 ssh로 접속하고 stress를 사용하여 Auto Scaling 작동 테스트 하기
+![6](https://github.com/sub-blind/oz_front/assets/58137602/3ecf725b-d986-4b62-b57d-5427290f4ec9)
+7. 모든 리소스 정리하기
+![7](https://github.com/sub-blind/oz_front/assets/58137602/83f2aa23-6384-4b94-8879-32b1650675a3)
+>>>>>>> 24f4cfbd2c3b360bc4852b21e9bc0021d7142fcd
