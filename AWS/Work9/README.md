@@ -1,10 +1,13 @@
-1.  RDS 인스턴스 생성하기 (서울 리전, MySQL, db.t3.micro)
-    ![1](https://github.com/sub-blind/oz_front/assets/58137602/9eacd94e-2c99-4e5b-ac54-8fab3216e879)
-2.  생성한 버킷에 파일 업로드 하기
-    ![2](https://github.com/sub-blind/oz_front/assets/58137602/a310f58b-1215-41c0-a960-7a08571b709e)
-3.  업로드한 파일 다운로드 받기
-    ![3](https://github.com/sub-blind/oz_front/assets/58137602/9a5974fe-b119-4578-95a7-abe415d1f77d)
-4.  폴더를 생성하고 폴더로 파일 복제하기
-    ![4](https://github.com/sub-blind/oz_front/assets/58137602/bbbbfc8d-ad12-4576-a165-2a7888147e20)
-5.  버킷 삭제하기
-    ![5](https://github.com/sub-blind/oz_front/assets/58137602/0996ce49-c126-40c5-909c-768b5463a535)
+1.  S3 버킷 생성하기(서울 리전)
+![1](https://github.com/sub-blind/oz_front/assets/58137602/642adb79-2fe9-48f2-9ddb-40e7bc6a3afb)
+2. 버킷의 정적 웹사이트 호스팅 활성화 하기
+![2](https://github.com/sub-blind/oz_front/assets/58137602/21aeba0c-6ba9-47da-9ee0-b309830cee1b)
+3.생성한 버킷에 간단하게 작성한 index.html 업로드 하기
+![3](https://github.com/sub-blind/oz_front/assets/58137602/1131bf9a-0b7a-40d1-946f-4b987f04e7a2)
+4.. 버킷의 퍼블릭 엑세스 차단 해제하기
+![4](https://github.com/sub-blind/oz_front/assets/58137602/8ce4f524-de98-4472-b6c1-c206c10324c9)
+5.. 버킷 정책 편집하기 (외부에서 모든 객체에 접근할 수 있도록)
+![5](https://github.com/sub-blind/oz_front/assets/58137602/91ef284c-cd27-46c0-ad3e-fb213d15984e)
+6.. 버킷 웹 사이트 엔드포인트로 접속하여 웹 사이트가 잘 나오는지 확인하기
+![6](https://github.com/sub-blind/oz_front/assets/58137602/96dd3c24-53a9-4fa7-b992-b2c4d6923ae7)
+7.. 버킷 삭제하기
